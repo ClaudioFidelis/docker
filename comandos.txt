@@ -1,0 +1,18 @@
+https://hub.docker.com/
+https://hub.docker.com/_/debian
+
+Passos para criar uma imagem  partir do debian que instale e inicie o nginx:
+1 - Definir uma imagem base
+2 - Definir informações para a imagem
+3 - Executar comandos para instalar e iniciar nginx
+4 - Expor qual a porta do servidor vai atender (no conteiner)
+5 - Definir o ponto de entrada a aplicação
+6 - Definir a execução de um comando para inicializar o servidor nginx
+
+Após a criação do Dockerfile executar comando:
+docker build  -t claudiofidelis/debiannginx:1.0 .
+
+Caso ocorra erro:
+no matching manifest for windows/amd64 10.0.18363 in the manifest list entries
+
+Acessar configurações do docker. Ir em Docker Engine e configurar "experimental": true
