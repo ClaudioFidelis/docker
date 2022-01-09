@@ -10,7 +10,7 @@ Passos para criar uma imagem  partir do debian que instale e inicie o nginx:
 6 - Definir a execução de um comando para inicializar o servidor nginx
 
 Após a criação do Dockerfile executar comando:
-docker build  -t claudiofidelis/debiannginx:1.0 .
+docker build  -t claudiofidelis/debian-nginx:1.0 .
 
 Caso ocorra erro:
 no matching manifest for windows/amd64 10.0.18363 in the manifest list entries
