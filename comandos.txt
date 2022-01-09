@@ -26,5 +26,12 @@ Fonte: https://docs.microsoft.com/pt-br/windows/wsl/install-manual#step-4---down
 Executar o conteiner
 docker container run --name teste -p 80:80 claudiofidelis/debian-nginx:1.0
 
+Enviar a imagem para o repositório
+Antes de enviar a imagem você deve 'taguear' a imagem usando o comando : docker tag
+docker tag <imagem_id> <sua_conta>/<nome_image>:tag
+
+A seguir envie a sua imagem para repositório via comando :  
+docker push <nome_da_sua_conta>/sua_imagem:tag
+
 ------------------- Comandos Básicos Docker ------------------------
 docker images
