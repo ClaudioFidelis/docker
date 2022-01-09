@@ -1,20 +1,22 @@
-# Informa a partir de qual versão vai criar a imagem
-FROM debian:8
+# define a imagem base
+FROM debian:latest
 
-# Define versão e descrição da imagem que será criada
-LABEL version="1.0" description="Instalar Debian 8 e Nginx e subir Nginx"
+# define o mantenedor da imagem
+LABEL maintainer="Claudio Fidelis"
 
-# Executa o 3 comandos dentro da imagem do Docker. Esses comandos são executados 
-# uma vez no tempo de compilação e gravados na imagem do Docker como uma nova camada
-RUN apt-get update && apt-get install -y nginx && apt-get clean
+# Atualiza a imagem com os pacotes
+RUN apt-get update && apt-get upgrade -y
 
-# Expõe a porta 80 como default
+# Instala o NGINX para testar
+RUN apt-get install nginx -y
+
+# Expoe a porta 80
 EXPOSE 80
 
-# Especifica um comando que sempre será executado quando o conteiner for iniciado
-ENTRYPOINT ["/usr/sbin/nginx"]
+VOLUME /meusarquivos
 
-# Usado como uma maneira de definir argumentos padrão para um 
-# comando ENTRYPOINT ou para executar um comando em um conteiner
-# "usr/sbin/nginx -g daemon off;	"
-CMD ["-g", "daemon off;"]
+# Comando para iniciar o NGINX no Container
+CMD ["nginx", "-g", "daemon off;"]
+
+
+#fonte: http://www.macoratti.net/19/02/dock_imgfile1.htm (Macoratti)

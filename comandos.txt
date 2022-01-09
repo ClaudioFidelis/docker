@@ -13,6 +13,18 @@ Após a criação do Dockerfile executar comando:
 docker build  -t claudiofidelis/debian-nginx:1.0 .
 
 Caso ocorra erro:
-no matching manifest for windows/amd64 10.0.18363 in the manifest list entries
-
+"no matching manifest for windows/amd64 10.0.18363 in the manifest list entries"
 Acessar configurações do docker. Ir em Docker Engine e configurar "experimental": true
+
+
+OBS.: Verifique se você tem algum WSL (Windows Subsystem for Linux) instalado em seu windows. 
+Caso não tenha, deverá instalar uma distribuição linux que deseje e, após instalação, 
+clicar botão direito sobre o ícone do docker. Em seguida, Switch to LINUX conteiners...
+
+Fonte: https://docs.microsoft.com/pt-br/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+Executar o conteiner
+docker container run --name teste -p 80:80 claudiofidelis/debian-nginx:1.0
+
+------------------- Comandos Básicos Docker ------------------------
+docker images
